@@ -1,0 +1,37 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# USFSAevents
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of USFSAevents is to scrape figure skating event data from the
+US Figure Skating Association (USFSA) website, perform summary
+statistics, and create relevant visual aids in comparing various
+competitions.
+
+## Installation
+
+You can install the released version of USFSAevents from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("USFSAevents")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("ayak9/fs_repo")
+```
+
+## Example
+
+This is a basic example:
+
+``` r
+library(USFSAevents)
+Event1 = anycomp('https://ijs.usfigureskating.org/leaderboard/results/2018/26192/SEGM036.html')
+```
