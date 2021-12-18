@@ -1,0 +1,25 @@
+#' Histogram of Total Segment Scores by Skater
+#'
+#' @param data data frame of chosen event data
+#'
+#' @return histogram of Total Segment Scores for a single competition
+#' @export
+#'
+#' @importFrom stats reorder
+#' @importFrom ggplot2 ggplot
+#' @importFrom ggplot2 aes
+#' @importFrom stats reorder
+#' @importFrom ggplot2 geom_bar
+#' @importFrom ggplot2 theme
+#' @importFrom ggplot2 element_text
+#' @importFrom ggplot2 ggtitle
+#' @importFrom ggplot2 ylab
+#' @importFrom ggplot2 xlab
+#' @examples
+#' Comp1 = anycomp('https://ijs.usfigureskating.org/leaderboard/results/2018/26192/SEGM036.html')
+#' tsscompareSkater(Comp1)
+tsscompareSkater = function(data){
+  Name <- TSS <- NULL
+  plot <- ggplot(data, aes(x=reorder(Name, rank), y=TSS)) + geom_bar(stat="identity") + theme(axis.text.x = element_text(angle=-90, vjust=0.5, hjust=0)) + ggtitle('Total Segment Scores by Skater in Rank Order') + ylab('Total Segment Scores') + xlab("Skater")
+  return(plot)
+}

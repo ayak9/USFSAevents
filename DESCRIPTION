@@ -1,0 +1,27 @@
+Package: USFSAevents
+Type: Package
+Title: USFSA Competition Event Comparisons
+Version: 0.1.0
+Author: Allison Beebe
+Maintainer: Allison Beebe <aabeebe9@gmail.com>
+Description: Scrapes figure skating event data from the US Figure Skating Association (USFSA) website, generate summary statistics, and creates relevant visual aids in comparing events at various competitions.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    ggplot2,
+    gtsummary,
+    kableExtra,
+    magrittr,
+    modelsummary,
+    rvest,
+    shiny,
+    stats,
+    stringr,
+    tidyr
+RoxygenNote: 7.1.2
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
