@@ -123,12 +123,12 @@ bvcompareComp(Event1, Event2)
 Using the Shiny App
 -------------------
 
-The Shiny app is generated though *runApp()* and is an interactive form of selecting between a few events that are uploaded. The included events are the US Nationals Senior Mens Short Programs and Freeskates for years 2017, 2018, and 2019, creating a total of 6 total options. 
+The Shiny app is generated though *runEventApp()* and is an interactive form of selecting between a few events that are uploaded. The included events are the US Nationals Senior Mens Short Programs and Freeskates for years 2017, 2018, and 2019, creating a total of 6 total options. 
 The app gives users the opportunity to choose 2 events and look at the event's data as well as produce the visuals that the functions in this package are able to produce using Checkbox selections on the left side of the interface. There are separate options for single event summaries and 2-event comparisons.
 
 
 ```{r, eval=F, echo=T}
-runApp()
+runEventApp()
 ```
 
 Future Work
