@@ -20,7 +20,7 @@ set.seed(1234)
 Motivation for this Package
 ===========================
 
-Figure Skating Competitions occur periodically in the US, and it is difficult to keep up with the constant increase in data, especially looking at how skaters are doing overall, trends of changes in the sport (such as attempting more difficult elements as years go by), and simple summaries of competition events, since we usually just look at each individual score separately. After/during every competition, the media and competition release each skater's individual protocol for each event they skated at, which includes exact scores for elements, deductions, and various sums in addition to a list of each skater's totals in rank order. However, currently there is no widely used tool to put together each of the skater's data and visualize it or even provide summary statistics. This package is a simple way to be able to input your USFSA event of choice, and look at it from an overall point of view through visualizations and summaries or even look at preinstalled events on the included Shiny app. Specifically, there are 2 fuctions to create summary tables for a single event, another function to combine the data of two events to be able to compare a skater's scores, and 2 comparison functions to compare specific scores between 2 events to look at if the variation has changed, in addition to others.
+Figure Skating Competitions occur periodically in the US, and it is difficult to keep up with the constant increase in data, especially looking at how skaters are doing overall, trends of changes in the sport (such as attempting more difficult elements as years go by), and simple summaries of competition events, since we usually just look at each individual score separately. After/during every competition, the media and competition release each skater's individual protocol for each event they skated at, which includes exact scores for elements, deductions, and various sums in addition to a list of each skater's totals in rank order. However, currently there is no widely used tool to put together each of the skater's data and visualize it or even provide summary statistics. This package is a simple way to be able to input your USFSA event of choice, and look at it from an overall point of view through visualizations and summaries or even look at preinstalled events on the included Shiny app. Specifically, there are 2 functions to create summary tables for a single event, another function to combine the data of two events to be able to compare a skater's scores, and 2 comparison functions to compare specific scores between 2 events to look at if the variation has changed, in addition to others.
 
 
 Using the Package
@@ -32,7 +32,7 @@ Getting the Data
 -----------------
 
 To use any of the other functions in the package, it is important to use *anycomp()* to
-read in the html url of the specific USFSA event you would like to look at. We will be using the Senior Mens Freeskate event from the 2018 US National Championships as Event 1 and the Senior Mens Freeskate event from the 2019 US National Championships as Event 2. 
+read in the html url of the specific USFSA event you would like to look at. As en example, we will be using the Senior Mens Freeskate event from the 2018 US National Championships as Event 1 and the Senior Mens Freeskate event from the 2019 US National Championships as Event 2. 
 
 ```{r}
 Event1 = anycomp('https://ijs.usfigureskating.org/leaderboard/results/2018/26192/SEGM036.html')
@@ -43,9 +43,9 @@ Event1
 Summary Tables
 --------------
 
-Looking at only Event 1, can produce 2 different summary tables, one for quantitative variables and another for qualitative variables. This can be done using *compsumQuan()* and *compsumQual()*. 
+Looking at only Event 1, we can produce 2 different summary tables, one for quantitative variables and another for qualitative variables. This can be done using *compsumQuan()* and *compsumQual()*. 
 
-*compsumQuan()* creates a table for the mean and standard deviation values for TSS, TES, bv, TCS, and GOE scores, while *compsumQual()* produces a table for the count and frequency for Deduction values.
+*compsumQuan()* creates a table for the mean and standard deviation values for Techinical Skating Score (TSS), Technical Element Score (TES), Base Value (bv), Technical Component Score (TCS), and Grade of Execution (GOE) scores, while *compsumQual()* produces a table for the count and frequency for Deduction values.
 
 ```{r}
 compsumQuan(Event1)
@@ -55,7 +55,7 @@ compsumQual(Event1)
 Variable Variation
 ------------------
 
-After looking at summaries of data, it is also important to be able to visualize the variation of the variables.
+After looking at summaries of data numerically, it is also important to be able to visualize the variation of the variables.
 
 Variable variation of quantitative variables can be done through *varvariationQuan()*, which produces boxplots for TSS, TES, bv, TCS, and GOE scores. On the other hand, *varvariationQual()*, gives a histogram for Deduction scores.
 
@@ -68,17 +68,17 @@ varvariationQual(Event1)
 Comparisons within one Event
 ----------------------------
 
-### TSS Comparison
 There a few functions in this package that compare values within a single competition in a graphical form. 
+
+### TechinicaL Skating Score Comparison
 First, *tsscompareSkater()* creates a histogram of the Total Segment Scores for each skater. The Total Segment Score is the sum of all of the individual scores that a skater has earned in one event. This is useful in seeing how different each of the scores are in comaprison to each other. 
 
 ```{r}
 tsscompareSkater(Event1)
 ```
 
-
 ### Base Value Score Comparison
-*bvcompareSkater()* then compares base value scores for each skater. The base value score is a sum of the base values of all of the planned elements in a single program of one event. Regardless of what actually happens during the skate such as falls or other deductions, the base value score is a great way to compare the level that each skater was attempting to skate at. 
+*bvcompareSkater()* compares base value scores for each skater. The base value score is a sum of the base values of all of the planned elements in a single program of one event. Regardless of what actually happens during the skate such as falls or other deductions, the base value score is a great way to compare the level that each skater was attempting to skate at. 
 
 ```{r}
 bvcompareSkater(Event1)
@@ -94,7 +94,7 @@ goecompare(Event1)
 Combing the Data for Two Events
 -------------------------------
 
-This package does feature a few comparison features for 2 events. 
+This package features a few comparison features for 2 events. 
 
 First, we can look at the data for all of the skaters who participated in both events using *bothcomp()*. Scores for Event 1 are indicated by 1 after the each of the score names, and 2 is used for Event 2.
 
@@ -107,7 +107,7 @@ Two Event Comparison
 --------------------
 
 ### Total Segment Score Comparison
-To compare the Total Segment Scores between the two events, *tsscompareComp()* produces a side-by-side boxplots of the TSS scores for each of the events. This can help visualize the variation differences between the two events.
+To compare the Total Segment Scores between the two events, *tsscompareComp()* produces side-by-side boxplots of the TSS scores for each of the 2 events. This can help visualize the variation differences between the two events.
 
 ```{r, results='hide'}
 tsscompareComp(Event1, Event2)
@@ -134,8 +134,8 @@ runEventApp()
 Future Work
 ===========
 
-There is definitely room for improvement in this package, and beyond adding more event options to the Shiny app, we could look into webscraping more specific variables from the provided html page. Currently, most of the variables used in the package are sums to be able to more easily look at the big picture of the event, but if we are able to get more specific variables, we could compare things such as the order of elements that skaters have chosen to perform (Ex. are there more jumps in the first half of the program or second half, etc.)
+There is definitely room for improvement in this package, and beyond adding more event options to the Shiny app, we could look into webscraping more specific variables from the provided html page. Currently, most of the variables used in the package are sums to be able to more easily look at the big picture of the event, but if we are able to get more specific variables such as points of specific elements that each skater chose to perform, we could compare things such as the order of elements of each skater (Ex. are there more jumps in the first half of the program or second half, etc.), or who attempted the "most difficult" element by looking for the element with the most points.
 
-Another point to look at would be through adding more events to the Shiny app, we could look 1 skater's improvements by comparing their performance at multiple competitions (Ex. are they increasing their Base Value Score every competition, are their GOE scores going up, etc.).
+Another point to look at would be adding more events to the Shiny app. Then we could look at a single skater's improvements by comparing their performance at multiple competitions (Ex. are they increasing their Base Value Score every competition, are their GOE scores going up, etc.) for perhaps an entire season, not just two USFSA events.
 
 Assessing the Events themselves, it would be helpful to include details on the competition that the event was held at. This could happen through an additional function or perhaps through the *anycomp()* function and the Shiny app. Details would be information such as the full name, date, where it was held, and the judges/technical panel names. This information would be useful especially in comparisons and looking at the growth of a skater over time.
