@@ -26,7 +26,7 @@ Figure Skating Competitions occur periodically in the US, and it is difficult to
 Using the Package
 ==================
 
-This document introduces the basic tools of USFSAevents and the Shiny app within the package.
+This document introduces the basic tools of USFSAevents and the included Shiny app.
 
 Getting the Data
 -----------------
